@@ -109,7 +109,8 @@ class PersonalArea : ComponentActivity() {
                     .height(60.dp).width(320.dp),
                 colors = ButtonDefaults.buttonColors(colorResource(R.color.btncolor)),
                 onClick = {
-
+                    val intent = Intent(applicationContext, SystemBrowser::class.java)
+                    startActivity(intent)
                 }
             )
         }

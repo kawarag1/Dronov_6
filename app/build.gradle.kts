@@ -50,6 +50,13 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.compose.ui:ui:1.7.4")
+    implementation ("androidx.compose.material:material:1.7.4")
+    implementation ("androidx.compose.ui:ui-tooling:1.7.4")
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.7.4")
+    implementation ("androidx.compose.runtime:runtime:1.7.4")
+    implementation ("androidx.activity:activity-compose:1.7.0")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
