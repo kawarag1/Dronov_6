@@ -80,7 +80,8 @@ class PersonalArea : ComponentActivity() {
                     .offset(-20.dp, 15.dp)
                     .size(30.dp)
                     .clickable(onClick = {
-
+                        val intent = Intent(applicationContext, Notice::class.java)
+                        startActivity(intent)
                     })
             )
             Text(

@@ -19,6 +19,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxColors
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,7 +53,84 @@ class Notice : ComponentActivity() {
     }
     @Composable
     fun Greeting() {
-
+        var isChecked1 = remember { mutableStateOf(false) }
+        var isChecked2 = remember { mutableStateOf(false) }
+        var isChecked3 = remember { mutableStateOf(false) }
+        val CheckboxColors = CheckboxDefaults.colors(
+            checkedColor = colorResource(R.color.btncolor)
+        )
+        Box(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Image(
+                contentDescription = "",
+                painter = painterResource(R.drawable.backarrow),
+                modifier = Modifier
+                    .align(alignment = Alignment.TopStart)
+                    .offset(20.dp, 15.dp)
+                    .size(30.dp)
+                    .clickable(onClick = {
+                        val intent = Intent(applicationContext, PersonalArea::class.java)
+                        startActivity(intent)
+                    })
+            )
+            Text(
+                text = "Моё обучение",
+                style = TextStyle(fontSize = 24.sp),
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .offset(0.dp, 15.dp)
+            )
+            Image(
+                contentDescription = "",
+                painter = painterResource(R.drawable.section1),
+                modifier = Modifier
+                    .offset(0.dp, 100.dp)
+                    .size(400.dp)
+            )
+            Text(
+                text = "Показывать прогресс обучения",
+                style = TextStyle(fontSize = 16.sp),
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .offset(20.dp, -150.dp)
+            )
+            Checkbox(
+                checked = isChecked1.value,
+                onCheckedChange = {isChecked1.value = it},
+                modifier = Modifier.align(Alignment.BottomEnd)
+                    .offset(-20.dp, -135.dp),
+                colors = CheckboxColors
+            )
+            Text(
+                text = "Показывать прогресс обучения",
+                style = TextStyle(fontSize = 16.sp),
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .offset(20.dp, -100.dp)
+            )
+            Checkbox(
+                checked = isChecked2.value,
+                onCheckedChange = {isChecked1.value = it},
+                modifier = Modifier.align(Alignment.BottomEnd)
+                    .offset(-20.dp, -85.dp),
+                colors = CheckboxColors
+            )
+            Text(
+                text = "Уведомлять об условиях и акциях",
+                style = TextStyle(fontSize = 16.sp),
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .offset(20.dp, -50.dp)
+            )
+            Checkbox(
+                checked = isChecked3.value,
+                onCheckedChange = {isChecked1.value = it},
+                modifier = Modifier.align(Alignment.BottomEnd)
+                    .offset(-20.dp, -35.dp),
+                colors = CheckboxColors
+            )
+        }
 
 
     }
