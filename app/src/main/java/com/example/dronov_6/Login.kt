@@ -90,7 +90,7 @@ class Login : ComponentActivity() {
                         }
                         else{
                             val intent = Intent(context, PersonalArea::class.java)
-                            intent.putExtra("TEXT_KEY", login.value)
+                            intent.putExtra("login", login.value)
                             startActivity(intent)
                         }
 

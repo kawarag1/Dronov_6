@@ -41,15 +41,16 @@ import com.example.dronov_6.Login
 class PersonalArea : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val login = intent.getStringExtra("login") ?: "login"
         enableEdgeToEdge()
         setContent {
             Dronov_6Theme {
-                Greeting()
+                Greeting(login = login, onBackPressed = {finish()})
             }
         }
     }
     @Composable
-    fun Greeting() {
+    fun Greeting(login:String, onBackPressed: () -> Unit) {
         Box(
             modifier = Modifier.fillMaxSize()
         ){
@@ -85,7 +86,7 @@ class PersonalArea : ComponentActivity() {
                     })
             )
             Text(
-                text = "Привет, User",
+                text = "Привет, ${login}",
                 style = TextStyle(fontSize = 24.sp),
                 modifier = Modifier.offset(20.dp, 140.dp)
             )
@@ -105,8 +106,10 @@ class PersonalArea : ComponentActivity() {
             )
             Button(
                 content = { Text("+    Добавить новый курс") },
-                modifier = Modifier.offset(40.dp, 600.dp)
-                    .height(60.dp).width(320.dp),
+                modifier = Modifier
+                    .offset(40.dp, 600.dp)
+                    .height(60.dp)
+                    .width(320.dp),
                 colors = ButtonDefaults.buttonColors(colorResource(R.color.btncolor)),
                 onClick = {
                     val intent = Intent(applicationContext, SystemBrowser::class.java)
@@ -119,8 +122,9 @@ class PersonalArea : ComponentActivity() {
     @Preview(showBackground = true)
     @Composable
     fun GreetingPreview() {
+        val login = intent.getStringExtra("login") ?: "login"
         Dronov_6Theme {
-            Greeting()
+            Greeting(login = login, onBackPressed = {finish()})
         }
     }
 }
